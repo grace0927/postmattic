@@ -17,11 +17,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
-from postmattic.users import views
+from postmattic.users import views as user_view
+from posts import views as posts_view
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'users', user_view.UserViewSet)
+router.register(r'groups', user_view.GroupViewSet)
+router.register(r'navitems', posts_view.NavItemViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
